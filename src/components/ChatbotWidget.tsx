@@ -124,8 +124,11 @@ export default function ChatbotWidget() {
                       <Sparkles className="h-2 w-2 animate-pulse" /> Active
                     </span>
                   </h4>
-                  <p className="text-[10px] text-white/60 flex items-center gap-1 font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                  <p className="text-[10px] text-white/60 flex items-center gap-1.5 font-medium">
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400"></span>
+                    </span>
                     Hỗ trợ giải pháp & báo giá tức thì
                   </p>
                 </div>
@@ -194,7 +197,7 @@ export default function ChatbotWidget() {
               <button
                 type="submit"
                 disabled={!input.trim() || loading}
-                className="p-2.5 rounded-xl bg-primary hover:bg-primary-dark text-white disabled:opacity-40 transition-all cursor-pointer flex-shrink-0"
+                className="p-2.5 rounded-xl bg-gradient-to-r from-accent-blue to-accent-cyan hover:brightness-110 text-white disabled:opacity-40 transition-all cursor-pointer flex-shrink-0"
                 id="btn-chatbot-widget-send"
               >
                 <Send className="h-3.5 w-3.5" />
@@ -217,7 +220,10 @@ export default function ChatbotWidget() {
               className="mr-3 bg-white border border-primary/5 px-4 py-2 rounded-xl shadow-xl flex items-center gap-2 cursor-pointer whitespace-nowrap select-none group"
               id="chatbot-widget-notification"
             >
-              <div className="w-2 h-2 rounded-full bg-accent-cyan animate-ping" />
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
               <span className="text-xs font-bold text-primary group-hover:text-accent-blue transition-colors">
                 Bạn cần tư vấn giải pháp/báo giá?
               </span>
@@ -239,20 +245,20 @@ export default function ChatbotWidget() {
           onClick={() => setIsOpen(!isOpen)}
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.92 }}
-          className="w-14 h-14 rounded-full bg-primary text-white shadow-2xl flex items-center justify-center border border-white/10 relative cursor-pointer group bg-grid-pattern-dark"
+          className="w-14 h-14 rounded-full bg-gradient-to-tr from-accent-blue to-accent-cyan text-white shadow-lg shadow-accent-cyan/25 flex items-center justify-center border border-white/10 relative cursor-pointer group"
           id="btn-chatbot-floating-toggle"
           aria-label="Toggle AI Chat Advisor"
         >
           {isOpen ? (
-            <X className="h-6 w-6 text-accent-cyan" />
+            <X className="h-6 w-6 text-white" />
           ) : (
             <>
-              <MessageSquareCode className="h-6 w-6 text-white group-hover:text-accent-cyan transition-colors" />
+              <MessageSquareCode className="h-6 w-6 text-white group-hover:scale-105 transition-transform" />
               
               {/* Outer pulsing ring for premium micro-interaction */}
               <span className="absolute -top-0.5 -right-0.5 flex h-3.5 w-3.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-cyan opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-accent-cyan"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500"></span>
               </span>
             </>
           )}
